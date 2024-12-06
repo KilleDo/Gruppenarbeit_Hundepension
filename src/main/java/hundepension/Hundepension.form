@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="hundepension.Hundepension">
+  <grid id="27dc6" layout-manager="GridLayoutManager" row-count="4" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="1039" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="a54c8" class="javax.swing.JLabel" binding="registration">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Hund registrieren"/>
+        </properties>
+      </component>
+      <component id="2c58c" class="javax.swing.JTextField" binding="nameHundtextfield">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="db2a5" class="javax.swing.JComboBox" binding="rassecombobox">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <model>
+            <item value=""/>
+            <item value="American Bullog"/>
+            <item value="American Pit Bull Terrier"/>
+            <item value="Aussiedoodle"/>
+            <item value="Australian Cattle Dog"/>
+            <item value="Australian Shepherd"/>
+            <item value="Australian Terrier"/>
+            <item value="Beagle"/>
+            <item value="Bearded Collie"/>
+            <item value="Bloodhound"/>
+            <item value="Bobtail"/>
+            <item value="Bologneser"/>
+            <item value="Border Collie"/>
+            <item value="Border Terrier"/>
+            <item value="Boston Terrier"/>
+            <item value="Boxer"/>
+            <item value="Chihuahua"/>
+            <item value="Collie"/>
+            <item value="Dackel"/>
+            <item value="Dalmatiner"/>
+            <item value="Deutsche Dogge"/>
+            <item value="Deutscher Schäferhund"/>
+            <item value="Dobermann"/>
+            <item value="Englische Bulldogge"/>
+            <item value="English Cocker Spaniel"/>
+            <item value="Field Spaniel"/>
+            <item value="Flat Coated Retriever"/>
+            <item value="Französische Bulldogge"/>
+            <item value="Golden Retriever"/>
+            <item value="Goldendoodle"/>
+            <item value="Großspitz"/>
+            <item value="Harrier"/>
+            <item value="Havaneser"/>
+            <item value="Husky"/>
+            <item value="Irischer Wolfshund"/>
+            <item value="Irish Setter"/>
+            <item value="Irish Soft Coated Wheaten Terrier"/>
+            <item value="Irish Terrier"/>
+            <item value="Irish Water Spaniel"/>
+            <item value="Jack Russell Terrier"/>
+            <item value="Japan-Spitz"/>
+            <item value="Japanischer Terrier"/>
+            <item value="Kangal"/>
+            <item value="Koenigspudel"/>
+            <item value="Labrador Retriever"/>
+            <item value="Labradoodle"/>
+            <item value="Lagotto romagnolo"/>
+            <item value="Mastiff"/>
+            <item value="Mops"/>
+            <item value="Neufundländer"/>
+            <item value="Norwich Terrier"/>
+            <item value="Oesterreichischer Pinscher"/>
+            <item value="Old english Bulldog"/>
+            <item value="Pudel"/>
+            <item value="Rauhaardackel"/>
+            <item value="Rottweiler"/>
+            <item value="Schnoodle"/>
+            <item value="Scottish Terrier"/>
+            <item value="Serbischer Laufhund"/>
+            <item value="Siberian Husky"/>
+            <item value="Skye Terrier"/>
+            <item value="Staffordshire Bull Terrier"/>
+            <item value="Sussex Spaniel"/>
+            <item value="Taiwan Hund"/>
+            <item value="Tibet Terrier"/>
+            <item value="Tiroler Bracke"/>
+            <item value="Tschechoslowakischer Wolfshund"/>
+            <item value="Ungarische Bracke"/>
+            <item value="Welsh Corgi Cardigan"/>
+            <item value="Welsh Terrier"/>
+            <item value="Wolfsspitz"/>
+            <item value="Yorkshire Terrier"/>
+            <item value="Zwergpinscher"/>
+            <item value="Zwergschnauzer"/>
+            <item value="Zwergspitz"/>
+            <item value="Zwergpudel"/>
+            <item value="andere:"/>
+          </model>
+        </properties>
+      </component>
+      <component id="fdfdf" class="javax.swing.JTextField" binding="rassetextfield">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="c2134" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Name:"/>
+        </properties>
+      </component>
+      <component id="64138" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Rasse:"/>
+        </properties>
+      </component>
+      <component id="98d4f" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Geschlecht:"/>
+        </properties>
+      </component>
+      <component id="afaa9" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+        <constraints>
+          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <model>
+            <item value=""/>
+            <item value="Rüde"/>
+            <item value="Hündin"/>
+          </model>
+        </properties>
+      </component>
+      <component id="31ada" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Kastriert?"/>
+        </properties>
+      </component>
+      <component id="60996" class="javax.swing.JComboBox" binding="comboBox2" default-binding="true">
+        <constraints>
+          <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <model>
+            <item value=""/>
+            <item value="Ja"/>
+            <item value="Nein"/>
+          </model>
+        </properties>
+      </component>
+      <component id="244dc" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Größe:"/>
+        </properties>
+      </component>
+      <component id="580df" class="javax.swing.JComboBox" binding="comboBox3" default-binding="true">
+        <constraints>
+          <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <model>
+            <item value=""/>
+            <item value="Kleinhund"/>
+            <item value="Kleiner Hund"/>
+            <item value="Mittlerer Hund"/>
+            <item value="Großer Hund"/>
+            <item value="Riesiger Hund"/>
+          </model>
+        </properties>
+      </component>
+      <component id="54714" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="1" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Probleme mit:"/>
+        </properties>
+      </component>
+      <component id="b9141" class="javax.swing.JComboBox" binding="comboBox4" default-binding="true">
+        <constraints>
+          <grid row="2" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <model>
+            <item value=""/>
+            <item value="Menschen"/>
+            <item value="Hund/Rüde"/>
+            <item value="Hund/Hündin"/>
+            <item value="Katzen"/>
+            <item value="andere:"/>
+          </model>
+        </properties>
+      </component>
+      <component id="e9526" class="javax.swing.JTextField" binding="textField2" default-binding="true">
+        <constraints>
+          <grid row="3" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+    </children>
+  </grid>
+</form>
