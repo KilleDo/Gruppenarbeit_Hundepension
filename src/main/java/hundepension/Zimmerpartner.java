@@ -24,6 +24,7 @@ public class Zimmerpartner extends JFrame{
     private JComboBox eingabeHundeauswaehlen; // Combobox in welcher wir einen von uns zuvor in der Hundepension eingegeben Hund auswaehlen
     private Hundepension hundepension; //hier wird ein Objekt der Hundepension erstellt, um die Listen zu erhalten
 
+
     //Konstruktor
     public Zimmerpartner(Hundepension hundepension){
         this.hundepension = hundepension; //initialisieren
@@ -34,7 +35,8 @@ public class Zimmerpartner extends JFrame{
         setVisible(true);
 
         //Hier wird der Inhalt der Combobox, mit welcher unser eingegebener Hund ausgewählt wird, hinzugefügt
-        for (Hunde hund: hundepension.getHundeeingabeListe()){
+        eingabeHundeauswaehlen.addItem("");
+        for (Hunde hund: hundepension.getSuchtpartnerListe()){
             eingabeHundeauswaehlen.addItem(hund.getHundename());}
 
 
@@ -46,9 +48,13 @@ public class Zimmerpartner extends JFrame{
         eingabeHundeauswaehlen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String meinhund = eingabeHundeauswaehlen.getSelectedItem().toString();
+                eingabeHundeauswaehlen.setEnabled(false);
+                for (Hunde hund: hundepension.getSuchtpartnerListe()){
+                    hundepension.getSuchtpartnerListe().remove(hund);
+                }
             }
         });
-
         rassefilterlist.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
@@ -106,6 +112,7 @@ public class Zimmerpartner extends JFrame{
         filternButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
 
             }
         });
