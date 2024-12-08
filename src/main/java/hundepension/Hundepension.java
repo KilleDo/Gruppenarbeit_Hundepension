@@ -29,23 +29,35 @@ public class Hundepension extends JFrame{
     private JLabel weitereInformationenlabel;
     private JTextArea weitereInformationentextarea;
     private JTextArea ausgabe;
+    private JComboBox zimmerauswahl;
 
-    private ArrayList<Hunde> hundeListe; //Erstellen der Liste zur Klasse Hunde, in welcher die Objekte gespeihert werden
+    protected ArrayList<Hunde> hundeeingabeListe; //Erstellen der Liste zur Klasse Hunde, in welcher die Objekte gespeichert werden
+    protected ArrayList<Hunde> hundeimhotel; //später relevant für das Filtern der Zimmerpartner
+
+    public ArrayList<Hunde> getHundeeingabeListe() {
+        return hundeeingabeListe;
+    }
+    public ArrayList<Hunde> getHundeimhotel() {
+        return hundeimhotel;
+    }
 
     //Konstruktor
     public Hundepension(){
         setTitle("Hundepension "); // Titel des Fensters
         setDefaultCloseOperation(EXIT_ON_CLOSE); //Sorgt dafür, dass das Fenster geschlossen wird, sobald der "Close" Knopf gedrückt wird
         setContentPane(hundregistrierpanel);
-        setSize(1500,500); //Größe des Fensters
+        setSize(1500,1500); //Größe des Fensters
         setVisible(true); //Sichtbarkeit des Fensters
 
         // Die Rasse- und Problemeingabefelder, sollen nur sichtbar sein, wenn "andere:" ausgewählt wird, daher müssen sie Anfangs unsichtbar sein.
         rassetextfield.setVisible(false);
         problemetextfield.setVisible(false);
 
-        //Initialisieren der Liste "hundeListe" in welcher die Hunde gespeichert werden sollen.
-        hundeListe = new ArrayList<>();
+        //Initialisieren der Liste "hundeeingabeListe" in welcher die Hunde gespeichert werden sollen.
+        hundeeingabeListe = new ArrayList<>();
+        hundeimhotel = new ArrayList<>();
+
+
 
         //Actionlistener für die Komboboxen
         rassecombobox.addActionListener(new ActionListener() {
@@ -123,15 +135,12 @@ public class Hundepension extends JFrame{
 
                 if ( hundename.isEmpty() || rasse.isEmpty() || groesse.isEmpty() || geschlecht.isEmpty() || probleme.isEmpty()){
                     JOptionPane.showMessageDialog(null, "Bitte alles ausfüllen.");
-                }else{
-                    Hunde hund = new Hunde(hundename,rasse,groesse,alter,geschlecht,kastriert,probleme,weitereInfos);
+                }else {
+                    Hunde hund = new Hunde(hundename, rasse, groesse, alter, geschlecht, kastriert, probleme, weitereInfos);
                     String hundausgabe = hund.toString();
-                    hundeListe.add(hund);
+                    hundeeingabeListe.add(hund);
                     ausgabe.setText(ausgabe.getText() + "\n" + hundausgabe);
                 }
-
-
-
             }
         });
         resetButton.addActionListener(new ActionListener() {
@@ -147,6 +156,22 @@ public class Hundepension extends JFrame{
             geschlechtcombobox.setSelectedIndex(0);
             kastriertcombobox.setSelectedIndex(0);
             problemecombobox.setSelectedIndex(0);
+            }
+        });
+
+
+        zimmerauswahl.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String zimmer = zimmerauswahl.getSelectedItem().toString();
+                if (zimmer.equals("Doppelzimmer")){
+                    if (hundeeingabeListe.isEmpty()){ //Fehler falls noch kein Hund gespeichert wurde
+                        JOptionPane.showMessageDialog(null, "Bitte erst ihren Hund eingeben.");
+                        zimmerauswahl.setSelectedIndex(0); //sets Auswahl wieder auf "Einzelzimmer"
+                        return;
+                    }
+                    new Zimmerpartner(Hundepension.this); //öffnen des Zimmerpartner fensters und Übergabe des Objektes
+                }
             }
         });
     }

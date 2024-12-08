@@ -21,6 +21,27 @@ public class Hunde {
         this.kastriert = kastriert;
         this.probleme = probleme;
         this.weitereInfos = weitereInfos;
+
+    }
+
+    //Filter:
+    public String getHundename() {
+        return hundename;
+    }
+    public String getRasse() {
+        return rasse;
+    }
+    public String getGroesse() {
+        return groesse;
+    }
+    public double getAlter() {
+        return alter;
+    }
+    public String getGeschlecht() {
+        return geschlecht;
+    }
+    public boolean isKastriert() {
+        return kastriert;
     }
 
     //überschreibt ___.toString und erzeugt eine andere Textdarstellung des Objektes (\n = Zeilenumbruch)
