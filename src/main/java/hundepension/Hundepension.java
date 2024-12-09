@@ -111,6 +111,7 @@ public class Hundepension extends JFrame{
         speichern.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                initObjekte();
                 // text entnehmen aus Comboboxen und Textfeldern und den variablen zuweisen "zwischenspeichern"
                 String hundename = nameHundtextfield.getText();
                 String rasse = rassecombobox.getSelectedItem().toString();
@@ -123,6 +124,13 @@ public class Hundepension extends JFrame{
                 }catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(null, "Bitte als Altersangabe nur Zahlen eingeben.");
                     return;} //unterbrechen des Vorgangs
+                if (alter<1){
+                    JOptionPane.showMessageDialog(null,"Wir nehmen keine Hunde unter 1 Jahr.\nEntschuldigen Sie die Unannehmlichkeiten.");
+                    return;
+                }else if(alter>20){
+                    JOptionPane.showMessageDialog(null,"Wir nehmen nur Hunde unter 20.\nEntschuldigen Sie die Unannehmlichkeiten");
+                    return;
+                }
                 String geschlecht = geschlechtcombobox.getSelectedItem().toString();
                 boolean kastriert; // initalisieren des boolean kastriert
                 String ausgewaehlt = kastriertcombobox.getSelectedItem().toString(); // kastriert Combobox entwerten
@@ -151,8 +159,9 @@ public class Hundepension extends JFrame{
                 }
                 for (Hunde hund: hundeimhotel){
                     if (hund.getHundename().equals(hundename)){
-                        JOptionPane.showMessageDialog(null, "Da es bereits einen " + hundename +"in der Pension gibt." +
-                                "\nFalls Ihr Hund den gleichen Namen hat fügen Sie bitte eine Namensergänzung hinzu\nz.B.:"+hundename+"_braunAuge.");
+                        JOptionPane.showMessageDialog(null, "Da es bereits einen " + hundename +" in der Pension gibt, " +
+                                "\nbitten wir Sie, eine Namensergänzung hinzuzufügen " +
+                                "\num Verwechslungen und Probleme im System zu vermeiden.\nz.B.:"+hundename+"_braunAuge.");
                         return;
                     }
                 }
@@ -196,8 +205,26 @@ public class Hundepension extends JFrame{
             }
         });
     }
+    public void initObjekte(){
+        Hunde h1 = new Hunde("Violet", "Yorkshire Terrier", "Kleiner Hund", 3, "Hündin", true,"nichts/niemanden", "Verträgt keine Eier. ",false, "");
+        hundeimhotel.add(h1);
+        Hunde h2 = new Hunde("Milo", "Labradoodle", "Mittlerer Hund", 4, "Rüde", true, "Hunden/Rüden", "Frisst gerne alles mögliche.",false, "");
+        hundeimhotel.add(h2);
+        Hunde h3 = new Hunde("Miko", "Beagle", "Kleiner Hund", 6, "Hündin", true, "Nichts", "", false, "");
+        hundeimhotel.add(h3);
+        Hunde h4 = new Hunde("Chewbacca", "Neufundländer", "Riesiger Hund", 4, "Rüde", true, "Eimerköpfen", "Guter Gefährte", false, "");
+        hundeimhotel.add(h4);
+        Hunde h5 = new Hunde("Hulk", "American Pit Bull Terrier", "Großer Hund", 8, "Rüde", false, "lauten Geräuschen", "Nicht erschrecken, sein Fell ist grün gefärbt.", false,"" );
+        hundeimhotel.add(h5);
+        Hunde h6 = new Hunde("Blacky", "Dalmatiner", "Großer Hund", 6, "Hündin", true,"Nichts", "", false, "");
+        hundeimhotel.add(h6);
+        Hunde h7 = new Hunde("Loki", "Zwergspitz", "Kleinhund", 5, "Rüde", true, "Nichts", "Ist ein bisschen Hinterlistig.", false, "");
+        hundeimhotel.add(h7);
+        Hunde h8 = new Hunde("Jabba", "Mops", "Kleiner Hund", 2, "Rüde", true, "Nichts", "", false, "");
+        hundeimhotel.add(h8);}
 
-    public static void main(String[] args) {
+        public static void main(String[] args) {
         new Hundepension();
+
     }
 }

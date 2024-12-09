@@ -142,8 +142,8 @@
             <item value=""/>
             <item value="1-5"/>
             <item value="6-10"/>
-            <item value="10-15"/>
-            <item value="15-20"/>
+            <item value="11-15"/>
+            <item value="16-20"/>
           </model>
         </properties>
       </component>
@@ -199,6 +199,14 @@
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
+      </component>
+      <component id="17694" class="javax.swing.JRadioButton" binding="nurHundeDieEinenRadioButton" default-binding="true">
+        <constraints>
+          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Nur Hunde, die einen Zimmerpartner suchen anzeigen"/>
+        </properties>
       </component>
     </children>
   </grid>
