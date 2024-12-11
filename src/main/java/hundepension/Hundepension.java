@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+// <editor-fold desc="">
 public class Hundepension extends JFrame{
     private JLabel registration;
     private JTextField nameHundtextfield;
@@ -31,7 +32,9 @@ public class Hundepension extends JFrame{
     private JTextArea ausgabe;
     private JComboBox zimmerauswahl;
     private JButton partnerZuweisenButton;
-
+    private JScrollPane ausgabescrollbalken;
+    // </editor-fold>
+    // <editor-fold desc="Listen erstellen">
     protected ArrayList<Hunde> suchtpartnerListe; //Erstellen der Liste zur Klasse Hunde, in welcher die Objekte gespeichert werden
     protected ArrayList<Hunde> hundeimhotel; //später relevant für das Filtern der Zimmerpartner
 
@@ -41,7 +44,7 @@ public class Hundepension extends JFrame{
     public ArrayList<Hunde> getHundeimhotel() {
         return hundeimhotel;
     }
-
+    // </editor-fold>
     //Konstruktor
     public Hundepension(){
         setTitle("Hundepension "); // Titel des Fensters
@@ -58,7 +61,8 @@ public class Hundepension extends JFrame{
         suchtpartnerListe = new ArrayList<>();
         hundeimhotel = new ArrayList<>();
 
-
+        //Hunde aus initObjekt Methode in Hundeimhotelliste aufnehmen
+        initObjekte();
 
         //Actionlistener für die Komboboxen
         rassecombobox.addActionListener(new ActionListener() {
@@ -111,7 +115,6 @@ public class Hundepension extends JFrame{
         speichern.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                initObjekte();
                 // text entnehmen aus Comboboxen und Textfeldern und den variablen zuweisen "zwischenspeichern"
                 String hundename = nameHundtextfield.getText();
                 String rasse = rassecombobox.getSelectedItem().toString();

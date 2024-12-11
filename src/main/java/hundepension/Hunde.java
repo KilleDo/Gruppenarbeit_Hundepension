@@ -1,6 +1,7 @@
 package hundepension;
 
 //Klasse mit sämtlichen Attributen für einen Hund (= Objekt)
+// <editor-fold desc="Attribute">
 public class Hunde {
     private String hundename;
     private String rasse;
@@ -12,7 +13,7 @@ public class Hunde {
     private String weitereInfos;
     private boolean einzelzimmer;
     private String zimmerpartner;
-
+    // </editor-fold>
     //Konstruktor (Dieser wird verwendet um Objekte der Klasse Hunde zu erstellen und deren Atrribute zu initialisieren)
     public Hunde(String hundename, String rasse, String groesse, double alter, String geschlecht, boolean kastriert, String probleme, String weitereInfos, boolean einzelzimmer, String zimmerpartner) {
         this.hundename = hundename;
@@ -26,8 +27,7 @@ public class Hunde {
         this.einzelzimmer = einzelzimmer;
         this.zimmerpartner = zimmerpartner;
     }
-
-    //Filter:
+    // <editor-fold desc="Getter">
     public String getHundename() {
         return hundename;
     }
@@ -46,13 +46,22 @@ public class Hunde {
     public boolean isKastriert() {
         return kastriert;
     }
+
+    public String getProbleme() {
+        return probleme;
+    }
+
+    public String getWeitereInfos() {
+        return weitereInfos;
+    }
+
     public boolean getEinzelzimmer(){
         return einzelzimmer;
     }
     public String getZimmerpartner(){
         return zimmerpartner;
     }
-
+    // </editor-fold>
     //erzeugt eine andere Textdarstellung des Objektes (\n = Zeilenumbruch)
     public String ausgeben(){
         return " \n\n" + hundename + " \n Rasse: " + rasse + "\n Größe: " + groesse + "\n Alter: " + alter + "\n Geschlecht: " + geschlecht

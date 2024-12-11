@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="zimmmerpartnerpanel" layout-manager="GridLayoutManager" row-count="9" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="963" height="1963"/>
+      <xy x="20" y="20" width="1299" height="1963"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -14,52 +14,6 @@
         </constraints>
         <properties>
           <text value="Idealer Zimmerpartner eigenschaften:"/>
-        </properties>
-      </component>
-      <component id="43044" class="javax.swing.JTextField" binding="rassefiltertextfield">
-        <constraints>
-          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties/>
-      </component>
-      <component id="ae81c" class="javax.swing.JList" binding="rassefilterlist">
-        <constraints>
-          <grid row="3" column="0" row-span="3" col-span="1" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="50"/>
-          </grid>
-        </constraints>
-        <properties>
-          <enabled value="true"/>
-          <model>
-            <item value="Egal"/>
-            <item value="American Pit Bull Terrier"/>
-            <item value="Beagle"/>
-            <item value="Border Collie"/>
-            <item value="Boxer"/>
-            <item value="Chihuahua"/>
-            <item value="Dackel"/>
-            <item value="Dalmatiner"/>
-            <item value="Deutscher Schäferhund"/>
-            <item value="Dobermann"/>
-            <item value="Englische Bulldogge"/>
-            <item value="English Cocker Spaniel"/>
-            <item value="Golden Retriever"/>
-            <item value="Goldendoodle"/>
-            <item value="Husky"/>
-            <item value="Irischer Wolfshund"/>
-            <item value="Labrador Retriever"/>
-            <item value="Labradoodle"/>
-            <item value="Lagotto romagnolo"/>
-            <item value="Mops"/>
-            <item value="Neufundländer"/>
-            <item value="Pudel"/>
-            <item value="Rottweiler"/>
-            <item value="Wolfsspitz"/>
-            <item value="Yorkshire Terrier"/>
-            <item value="Zwergspitz"/>
-          </model>
         </properties>
       </component>
       <component id="f65bd" class="javax.swing.JLabel">
@@ -114,20 +68,22 @@
       </component>
       <scrollpane id="e80f2" binding="filterausgabescrollbar">
         <constraints>
-          <grid row="8" column="0" row-span="1" col-span="5" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="7" column="0" row-span="1" col-span="5" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
         <border type="none"/>
         <children>
           <component id="156a1" class="javax.swing.JTextArea" binding="filterausgabe">
             <constraints/>
-            <properties/>
+            <properties>
+              <editable value="false"/>
+            </properties>
           </component>
         </children>
       </scrollpane>
       <component id="51e70" class="javax.swing.JButton" binding="filternButton" default-binding="true">
         <constraints>
-          <grid row="7" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="6" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Filtern"/>
@@ -155,21 +111,37 @@
         </constraints>
         <properties/>
       </component>
-      <component id="7e6c9" class="javax.swing.JComboBox" binding="geschlechtfiltercombobox">
+      <component id="c4eac" class="javax.swing.JComboBox" binding="eingabeHundeauswaehlen">
         <constraints>
-          <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="17694" class="javax.swing.JRadioButton" binding="nurDoppelzimmerradiobutton">
+        <constraints>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <model>
-            <item value="Egal"/>
-            <item value="Rüde"/>
-            <item value="Hündin"/>
-          </model>
+          <text value="Nur Hunde, die einen Zimmerpartner suchen anzeigen"/>
+        </properties>
+      </component>
+      <component id="9eb47" class="javax.swing.JComboBox" binding="zimmerpartnerwaehlencombobox">
+        <constraints>
+          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="4c7d3" class="javax.swing.JButton" binding="zuweisenbutton">
+        <constraints>
+          <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="zuweisen"/>
         </properties>
       </component>
       <component id="d347e" class="javax.swing.JComboBox" binding="groessefiltercombobox">
         <constraints>
-          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <model>
@@ -182,9 +154,21 @@
           </model>
         </properties>
       </component>
+      <component id="7e6c9" class="javax.swing.JComboBox" binding="geschlechtfiltercombobox">
+        <constraints>
+          <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <model>
+            <item value="Egal"/>
+            <item value="Rüde"/>
+            <item value="Hündin"/>
+          </model>
+        </properties>
+      </component>
       <component id="41749" class="javax.swing.JComboBox" binding="kastriertfiltercombobox">
         <constraints>
-          <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <model>
@@ -194,18 +178,30 @@
           </model>
         </properties>
       </component>
-      <component id="c4eac" class="javax.swing.JComboBox" binding="eingabeHundeauswaehlen">
+      <component id="89d36" class="javax.swing.JRadioButton" binding="egalrasseRadioButton">
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <enabled value="true"/>
+          <selected value="true"/>
+          <text value="Egal"/>
+        </properties>
+      </component>
+      <component id="43044" class="javax.swing.JTextField" binding="rassefiltertextfield">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
         </constraints>
         <properties/>
       </component>
-      <component id="17694" class="javax.swing.JRadioButton" binding="nurHundeDieEinenRadioButton" default-binding="true">
+      <component id="afd2a" class="javax.swing.JLabel" binding="rassefilterinfolabel">
         <constraints>
-          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Nur Hunde, die einen Zimmerpartner suchen anzeigen"/>
+          <text value="zwischen Hunderassen bitte immer ein Komma und Leerzeichen setzen"/>
         </properties>
       </component>
     </children>
