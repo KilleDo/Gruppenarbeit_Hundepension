@@ -43,7 +43,7 @@ public class Hunde {
     public String getGeschlecht() {
         return geschlecht;
     }
-    public boolean isKastriert() {
+    public boolean istKastriert() {
         return kastriert;
     }
 
@@ -62,6 +62,11 @@ public class Hunde {
         return zimmerpartner;
     }
     // </editor-fold>
+
+    public void setZimmerpartner(String zimmerpartner) {
+        this.zimmerpartner = "Zimmerpartner: " + zimmerpartner;
+    }
+
     //erzeugt eine andere Textdarstellung des Objektes (\n = Zeilenumbruch)
     public String ausgeben(){
         return " \n\n" + hundename + " \n Rasse: " + rasse + "\n Größe: " + groesse + "\n Alter: " + alter + "\n Geschlecht: " + geschlecht

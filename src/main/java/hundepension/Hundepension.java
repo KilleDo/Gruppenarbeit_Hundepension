@@ -9,18 +9,18 @@ import java.util.ArrayList;
 public class Hundepension extends JFrame{
     private JLabel registration;
     private JTextField nameHundtextfield;
+    private JLabel rasselabel;
     private JComboBox rassecombobox;
     private JTextField rassetextfield;
+    private JLabel groeßelabel;
+    private JComboBox groessecombobox;
+    private JLabel alterlabel;
     private JComboBox geschlechtcombobox;
     private JComboBox kastriertcombobox;
-    private JComboBox groessecombobox;
     private JComboBox problemecombobox;
     private JTextField problemetextfield;
     private JTextField altertextfield;
     private JPanel hundregistrierpanel;
-    private JLabel rasselabel;
-    private JLabel groeßelabel;
-    private JLabel alterlabel;
     private JLabel geschlechtlabel;
     private JLabel kastriertlabel;
     private JLabel problemelabel;
@@ -33,11 +33,13 @@ public class Hundepension extends JFrame{
     private JComboBox zimmerauswahl;
     private JButton partnerZuweisenButton;
     private JScrollPane ausgabescrollbalken;
+    private JLabel Icon;
     // </editor-fold>
     // <editor-fold desc="Listen erstellen">
     protected ArrayList<Hunde> suchtpartnerListe; //Erstellen der Liste zur Klasse Hunde, in welcher die Objekte gespeichert werden
-    protected ArrayList<Hunde> hundeimhotel; //später relevant für das Filtern der Zimmerpartner
+    protected ArrayList<Hunde> hundeimhotel; //Erstellen der Liste für alle Honde in der Hundepension
 
+    //Erstellen von gettermethoden um die Listen später in der anderen Klasse aufrufen zu können
     public ArrayList<Hunde> getSuchtpartnerListe() {
         return suchtpartnerListe;
     }
@@ -57,11 +59,11 @@ public class Hundepension extends JFrame{
         rassetextfield.setVisible(false);
         problemetextfield.setVisible(false);
 
-        //Initialisieren der Liste "hundeeingabeListe" in welcher die Hunde gespeichert werden sollen.
+        //Initialisieren der Listen
         suchtpartnerListe = new ArrayList<>();
         hundeimhotel = new ArrayList<>();
 
-        //Hunde aus initObjekt Methode in Hundeimhotelliste aufnehmen
+        //Aufrufen der Methode initObjekte, sodass bereits zum Start des Programmes ein paar Objekte in der Liste hundeimhotel gespeichert sind
         initObjekte();
 
         //Actionlistener für die Komboboxen
@@ -70,28 +72,25 @@ public class Hundepension extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 String rassesichtbar = rassecombobox.getSelectedItem().toString();
                 //Sichtbarkeit des Rassetextfeldes
-                if (rassesichtbar.equals("andere:")){
+                if (rassesichtbar.equals("andere:")){ //falls "andere:" ausgewählt wird, soll das textfield sichtbar sein
                     rassetextfield.setVisible(true);
-                }else{
+                }else{ //sonst nicht
                     rassetextfield.setVisible(false);
                 }}
         });
         groessecombobox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
             }
         });
         geschlechtcombobox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
             }
         });
         kastriertcombobox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
             }
         });
         problemecombobox.addActionListener(new ActionListener() {
@@ -99,9 +98,9 @@ public class Hundepension extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 String problemsichtbar = problemecombobox.getSelectedItem().toString();
                 //Sichtbarkeit des Problemetextfeldes
-                if (problemsichtbar.equals("andere:")){
+                if (problemsichtbar.equals("andere:")){ //falls "andere:" ausgewählt wurde, soll das textfield sichtbar sein
                     problemetextfield.setVisible(true);
-                }else{
+                }else{ //sonst nicht
                     problemetextfield.setVisible(false);
                 }
             }
@@ -109,13 +108,12 @@ public class Hundepension extends JFrame{
         zimmerauswahl.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
             }
         });
         speichern.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // text entnehmen aus Comboboxen und Textfeldern und den variablen zuweisen "zwischenspeichern"
+                // text entnehmen aus Comboboxen und Textfeldern und den variablen zuweisen  "zwischenspeichern"
                 String hundename = nameHundtextfield.getText();
                 String rasse = rassecombobox.getSelectedItem().toString();
                 if (rasse.equals("andere:")){ //falls "andere:" ausgewählt wurde, text aus dem Textfield stattdessen entnehmen
@@ -124,57 +122,58 @@ public class Hundepension extends JFrame{
                 double alter; // initialisierung des double alter
                 try{
                     alter = Double.parseDouble(altertextfield.getText());
-                }catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(null, "Bitte als Altersangabe nur Zahlen eingeben.");
+                }catch (NumberFormatException ex) { //falls es sich nicht in einen Double umwandeln lässt, weil z.B. Buchstaben enthalten:
+                    JOptionPane.showMessageDialog(null, "Bitte als Altersangabe nur Zahlen eingeben."); // Fehlermeldung
                     return;} //unterbrechen des Vorgangs
-                if (alter<1){
+                if (alter<1){ //falls der Hund unter einem Jahr alt ist: Fehlermeldung und unterbrechen des Speichervorgangs
                     JOptionPane.showMessageDialog(null,"Wir nehmen keine Hunde unter 1 Jahr.\nEntschuldigen Sie die Unannehmlichkeiten.");
                     return;
-                }else if(alter>20){
+                }else if(alter>20){ //falls der Hund über zwanzig Jahre alt ist: Fehlermeldung und unterbrechen des Speichervorgangs
                     JOptionPane.showMessageDialog(null,"Wir nehmen nur Hunde unter 20.\nEntschuldigen Sie die Unannehmlichkeiten");
                     return;
                 }
                 String geschlecht = geschlechtcombobox.getSelectedItem().toString();
                 boolean kastriert; // initalisieren des boolean kastriert
-                String ausgewaehlt = kastriertcombobox.getSelectedItem().toString(); // kastriert Combobox entwerten
+                String ausgewaehlt = kastriertcombobox.getSelectedItem().toString();
                 if (ausgewaehlt.isEmpty()){ // Falls in der Combobox nichts ausgewählt wurde, soll eine Fehlermeldung kommen
                     JOptionPane.showMessageDialog(null, "Bitte alles ausfüllen.");
                     return; //unterbrechen des Vorgangs
-                }else if (ausgewaehlt.equals("Ja")){ // falls "Ja" ausgewählt wurde, wird kastriert als richtig zwischengespeichert
+                }else if (ausgewaehlt.equals("Ja")){ // falls "Ja" ausgewählt wurde, wird kastriert als true zwischengespeichert
                     kastriert = true;
-                }else{ //falls etwas anderes ausgewäjlt wurde (also "Nein"), wird kastriert als falsch zwischengespeichert
+                }else{ //falls etwas anderes ausgewäjlt wurde (also "Nein"), wird kastriert als false zwischengespeichert
                     kastriert = false;}
                 String probleme = problemecombobox.getSelectedItem().toString();
                 if (probleme.equals("andere:")){ // falls "andere:" ausgewählt wurde, wird der Text stattdessen dem textfield entnommen
                     probleme = problemetextfield.getText();} // und überschrieben/zwischengespeichert
                 String weitereInfos = weitereInformationentextarea.getText();
                 String zimmerversion = zimmerauswahl.getSelectedItem().toString();
-                boolean einzelzimmer = false;
+                boolean einzelzimmer = false; // Initialisierung des booleans "einzelzimmer" als falsch
                 if (zimmerversion.equals("Einzelzimmer")){
-                    einzelzimmer = true;
+                    einzelzimmer = true; //falls einzelzimmer ausgewählt wurde würder als true überschrieben
                 }
-                String zimmerpartner = "";
+                String zimmerpartner = ""; //Der String Zimmerpartner wird grundsätzlich leer gesetzt
 
                 //Fehler, falls etwas nicht ausgefüllt wurde:
                 if (hundename.isEmpty() || rasse.isEmpty() || groesse.isEmpty() || geschlecht.isEmpty() || probleme.isEmpty() || zimmerversion.isEmpty()){
                     JOptionPane.showMessageDialog(null, "Bitte alles ausfüllen.");
                     return;
                 }
-                for (Hunde hund: hundeimhotel){
-                    if (hund.getHundename().equals(hundename)){
+                for (Hunde hund: hundeimhotel){ //geht alle Objekte(hund) der Klasse Hunde, in der "hundeimhotel"-Liste durch
+                    if (hund.getHundename().equals(hundename)){ // wenn der Hundename eines Objektes dem eingegebenen Namen entspricht:
                         JOptionPane.showMessageDialog(null, "Da es bereits einen " + hundename +" in der Pension gibt, " +
                                 "\nbitten wir Sie, eine Namensergänzung hinzuzufügen " +
-                                "\num Verwechslungen und Probleme im System zu vermeiden.\nz.B.:"+hundename+"_braunAuge.");
-                        return;
+                                "\num Verwechslungen und Probleme im System zu vermeiden.\nz.B.:"+hundename+"_braunAuge."); //Fehlermeldung
+                        return; //unterbrechen des Vorgangs
                     }
                 }
                 Hunde hund = new Hunde(hundename, rasse, groesse, alter, geschlecht, kastriert, probleme, weitereInfos, einzelzimmer, zimmerpartner);
-                String hundausgabe = hund.ausgeben();
-                hundeimhotel.add(hund);
-                if (einzelzimmer == false){
-                    suchtpartnerListe.add(hund);
+                //Erstellen eines neuen Objekts der Klasse Hunde, mit den aus den textfield und Comboboxen entnommenen Eingaben
+                String hundausgabe = hund.ausgeben(); //aufrufen der ausgeben Methode aus der Hunde Klasse am soeben erstellten Objekt und speichern in dem String "hundausgabe"
+                hundeimhotel.add(hund); //hinzufügen des soeben erstelleten Hundes zur Liste "hundeimhotel"
+                if (einzelzimmer == false){ // falls nicht einzelzimmer gewählt wurde (alsp Doppelzimmer)
+                    suchtpartnerListe.add(hund); // wird er zur "suchtpartnerListe" hinzugefügt
                 }
-                ausgabe.setText(ausgabe.getText() + "\n" + hundausgabe);
+                ausgabe.setText(ausgabe.getText() + "\n" + hundausgabe); // hinzufügen des Objektes zur "ausgabe"-textarea
                 }
         });
         resetButton.addActionListener(new ActionListener() {
@@ -192,23 +191,19 @@ public class Hundepension extends JFrame{
             problemecombobox.setSelectedIndex(0);
             }
         });
-
         partnerZuweisenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String zimmer = zimmerauswahl.getSelectedItem().toString();
-                if (zimmer.equals("Doppelzimmer")){
-                    if (suchtpartnerListe.isEmpty()){ //Fehler falls noch kein Hund gespeichert wurde
-                        JOptionPane.showMessageDialog(null, "Bitte erst ihren Hund eingeben.");
-                        zimmerauswahl.setSelectedIndex(0); //sets Auswahl wieder auf "Einzelzimmer"
-                        return;
+                if (suchtpartnerListe.isEmpty()){ //Fehler falls noch kein Hund der in ein Doppelzimmer will gespeichert wurde
+                    JOptionPane.showMessageDialog(null, "Bitte erst ihren Hund eingeben."); //Fehlermeldung
+                    return;
                     }
-                    new Zimmerpartner(Hundepension.this); //öffnen des Zimmerpartner fensters und Übergabe des Objektes
+                    new Zimmerpartner(Hundepension.this); //öffnen des Zimmerpartner fensters und Übergabe des Objektes "Hundepension"
+                    hundregistrierpanel.setVisible(false);
                 }
-            }
         });
     }
-    public void initObjekte(){
+    public void initObjekte(){ //Erschaffen von Objekten der Klasse Hunde
         Hunde h1 = new Hunde("Violet", "Yorkshire Terrier", "Kleiner Hund", 3, "Hündin", true,"nichts/niemanden", "Verträgt keine Eier. ",false, "");
         hundeimhotel.add(h1);
         Hunde h2 = new Hunde("Milo", "Labradoodle", "Mittlerer Hund", 4, "Rüde", true, "Hunden/Rüden", "Frisst gerne alles mögliche.",false, "");
@@ -228,6 +223,5 @@ public class Hundepension extends JFrame{
 
         public static void main(String[] args) {
         new Hundepension();
-
     }
 }

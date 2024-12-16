@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="hundepension.Hundepension">
-  <grid id="27dc6" binding="hundregistrierpanel" layout-manager="GridLayoutManager" row-count="9" column-count="7" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-    <margin top="0" left="0" bottom="0" right="0"/>
+  <grid id="27dc6" binding="hundregistrierpanel" layout-manager="GridLayoutManager" row-count="9" column-count="8" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="30" left="30" bottom="30" right="30"/>
     <constraints>
-      <xy x="20" y="20" width="1129" height="400"/>
+      <xy x="20" y="20" width="1299" height="420"/>
     </constraints>
-    <properties/>
+    <properties>
+      <background color="-4207158"/>
+    </properties>
     <border type="none"/>
     <children>
       <component id="a54c8" class="javax.swing.JLabel" binding="registration">
@@ -334,6 +336,15 @@
           </component>
         </children>
       </scrollpane>
+      <component id="213f9" class="javax.swing.JLabel" binding="Icon">
+        <constraints>
+          <grid row="0" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <icon value="IconHundepension.png"/>
+          <text value=""/>
+        </properties>
+      </component>
     </children>
   </grid>
 </form>
