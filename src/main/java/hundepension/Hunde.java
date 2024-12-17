@@ -1,8 +1,8 @@
 package hundepension;
-
 //Klasse mit sämtlichen Attributen für einen Hund (= Objekt)
-// <editor-fold desc="Attribute">
 public class Hunde {
+    // <editor-fold desc="Definiren der Variablen">
+    //erstellen der Attribute für die Listen, welche wir in den anderen Klassen erstellen
     private String hundename;
     private String rasse;
     private String groesse;
@@ -14,6 +14,7 @@ public class Hunde {
     private boolean einzelzimmer;
     private String zimmerpartner;
     // </editor-fold>
+    // <editor-fold desc="Konstruktor">
     //Konstruktor (Dieser wird verwendet um Objekte der Klasse Hunde zu erstellen und deren Atrribute zu initialisieren)
     public Hunde(String hundename, String rasse, String groesse, double alter, String geschlecht, boolean kastriert, String probleme, String weitereInfos, boolean einzelzimmer, String zimmerpartner) {
         this.hundename = hundename;
@@ -27,7 +28,8 @@ public class Hunde {
         this.einzelzimmer = einzelzimmer;
         this.zimmerpartner = zimmerpartner;
     }
-    // <editor-fold desc="Getter">
+    // </editor-fold desc>
+    // <editor-fold desc="Gettermethoden">
     public String getHundename() {
         return hundename;
     }
@@ -46,15 +48,12 @@ public class Hunde {
     public boolean istKastriert() {
         return kastriert;
     }
-
     public String getProbleme() {
         return probleme;
     }
-
     public String getWeitereInfos() {
         return weitereInfos;
     }
-
     public boolean getEinzelzimmer(){
         return einzelzimmer;
     }
@@ -62,14 +61,16 @@ public class Hunde {
         return zimmerpartner;
     }
     // </editor-fold>
-
-    public void setZimmerpartner(String zimmerpartner) {
+    // <editor-fold desc="Methode zum hinzufügen des Zimmerpartners">
+    public void setZimmerpartner(String zimmerpartner) { //überschreibt den zimmerpartner String
         this.zimmerpartner = "Zimmerpartner: " + zimmerpartner;
     }
-
-    //erzeugt eine andere Textdarstellung des Objektes (\n = Zeilenumbruch)
+    // </editor-fold desc">
+    // <editor-fold desc="Methode zur übersichtlichen Ausgabe eines Objektes">
+    // erzeugt eine andere Textdarstellung des Objektes (\n = Zeilenumbruch)
     public String ausgeben(){
         return " \n\n" + hundename + " \n Rasse: " + rasse + "\n Größe: " + groesse + "\n Alter: " + alter + "\n Geschlecht: " + geschlecht
                + "\n Kastriert: " + kastriert + "\n Hat Probleme mit " + probleme + "\n " + weitereInfos + "\n" + zimmerpartner +"\n\n------------------------------";
     }
+    // </editor-fold desc>
 }

@@ -1,44 +1,41 @@
 package hundepension;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
-// <editor-fold desc="">
 public class Hundepension extends JFrame{
-    private JLabel registration;
-    private JTextField nameHundtextfield;
-    private JLabel rasselabel;
-    private JComboBox rassecombobox;
-    private JTextField rassetextfield;
-    private JLabel groeßelabel;
-    private JComboBox groessecombobox;
-    private JLabel alterlabel;
-    private JComboBox geschlechtcombobox;
-    private JComboBox kastriertcombobox;
-    private JComboBox problemecombobox;
-    private JTextField problemetextfield;
-    private JTextField altertextfield;
+    // <editor-fold desc="Definieren der GUI-Komponenten und Listen ">
     private JPanel hundregistrierpanel;
+    private JLabel registration;
+    private JLabel rasselabel;
+    private JLabel groeßelabel;
+    private JLabel alterlabel;
     private JLabel geschlechtlabel;
     private JLabel kastriertlabel;
     private JLabel problemelabel;
     private JLabel namelabel;
+    private JLabel weitereInformationenlabel;
+    private JLabel Icon;
+    private JScrollPane ausgabescrollbalken;
+    private JTextArea ausgabe;
+    private JTextArea weitereInformationentextarea;
+    private JTextField nameHundtextfield;
+    private JTextField rassetextfield;
+    private JTextField problemetextfield;
+    private JTextField altertextfield;
+    private JComboBox rassecombobox;
+    private JComboBox groessecombobox;
+    private JComboBox geschlechtcombobox;
+    private JComboBox kastriertcombobox;
+    private JComboBox problemecombobox;
+    private JComboBox zimmerauswahl;
     private JButton speichern;
     private JButton resetButton;
-    private JLabel weitereInformationenlabel;
-    private JTextArea weitereInformationentextarea;
-    private JTextArea ausgabe;
-    private JComboBox zimmerauswahl;
     private JButton partnerZuweisenButton;
-    private JScrollPane ausgabescrollbalken;
-    private JLabel Icon;
-    // </editor-fold>
-    // <editor-fold desc="Listen erstellen">
     protected ArrayList<Hunde> suchtpartnerListe; //Erstellen der Liste zur Klasse Hunde, in welcher die Objekte gespeichert werden
     protected ArrayList<Hunde> hundeimhotel; //Erstellen der Liste für alle Honde in der Hundepension
-
+    // </editor-fold>
+    // <editor-fold desc="GetterMethoden für die Listen">
     //Erstellen von gettermethoden um die Listen später in der anderen Klasse aufrufen zu können
     public ArrayList<Hunde> getSuchtpartnerListe() {
         return suchtpartnerListe;
@@ -47,25 +44,29 @@ public class Hundepension extends JFrame{
         return hundeimhotel;
     }
     // </editor-fold>
-    //Konstruktor
+    // <editor-fold desc="Konstruktor">
     public Hundepension(){
+        // <editor-fold desc="Erstellen des Fensters">
         setTitle("Hundepension "); // Titel des Fensters
         setDefaultCloseOperation(EXIT_ON_CLOSE); //Sorgt dafür, dass das Fenster geschlossen wird, sobald der "Close" Knopf gedrückt wird
-        setContentPane(hundregistrierpanel);
+        setContentPane(hundregistrierpanel); //Platzieren des Panels, auf welchem alle GUI-Elemente platziert sind im Fenster
         setSize(1500,1500); //Größe des Fensters
         setVisible(true); //Sichtbarkeit des Fensters
-
+        // </editor-fold desc>
+        // <editor-fold desc="Verstecken bestimmter GUI-Elemente">
         // Die Rasse- und Problemeingabefelder, sollen nur sichtbar sein, wenn "andere:" ausgewählt wird, daher müssen sie Anfangs unsichtbar sein.
         rassetextfield.setVisible(false);
         problemetextfield.setVisible(false);
-
-        //Initialisieren der Listen
+        // </editor-fold desc>
+        // <editor-fold desc="Initialisieren der Listen">
         suchtpartnerListe = new ArrayList<>();
         hundeimhotel = new ArrayList<>();
-
+        // </editor-fold desc>
+        // <editor-fold desc="Aufrufen der initObjekte Methode">
         //Aufrufen der Methode initObjekte, sodass bereits zum Start des Programmes ein paar Objekte in der Liste hundeimhotel gespeichert sind
         initObjekte();
-
+        // </editor-fold desc>
+        // <editor-fold desc="Hundeingabe ActionListener">
         //Actionlistener für die Komboboxen
         rassecombobox.addActionListener(new ActionListener() {
             @Override
@@ -110,6 +111,7 @@ public class Hundepension extends JFrame{
             public void actionPerformed(ActionEvent e) {
             }
         });
+        //ActionListener für den Knopf, der das eingegebene Objekt in der Liste speichert
         speichern.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -129,7 +131,7 @@ public class Hundepension extends JFrame{
                     JOptionPane.showMessageDialog(null,"Wir nehmen keine Hunde unter 1 Jahr.\nEntschuldigen Sie die Unannehmlichkeiten.");
                     return;
                 }else if(alter>20){ //falls der Hund über zwanzig Jahre alt ist: Fehlermeldung und unterbrechen des Speichervorgangs
-                    JOptionPane.showMessageDialog(null,"Wir nehmen nur Hunde unter 20.\nEntschuldigen Sie die Unannehmlichkeiten");
+                    JOptionPane.showMessageDialog(null,"Wir nehmen nur Hunde bis 20.\nEntschuldigen Sie die Unannehmlichkeiten");
                     return;
                 }
                 String geschlecht = geschlechtcombobox.getSelectedItem().toString();
@@ -176,6 +178,7 @@ public class Hundepension extends JFrame{
                 ausgabe.setText(ausgabe.getText() + "\n" + hundausgabe); // hinzufügen des Objektes zur "ausgabe"-textarea
                 }
         });
+        //ActionListener für den Knopf, der die Eingabekomponenten zurücksetzt
         resetButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -191,18 +194,23 @@ public class Hundepension extends JFrame{
             problemecombobox.setSelectedIndex(0);
             }
         });
+        // </editor-fold desc>
+        // <editor-fold desc="Zimmerpartner ActionListener">
         partnerZuweisenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (suchtpartnerListe.isEmpty()){ //Fehler falls noch kein Hund der in ein Doppelzimmer will gespeichert wurde
-                    JOptionPane.showMessageDialog(null, "Bitte erst ihren Hund eingeben."); //Fehlermeldung
+                    JOptionPane.showMessageDialog(null, "Bitte einen Hund, welcher in ein Doppelzimmer soll eingeben."); //Fehlermeldung
                     return;
                     }
                     new Zimmerpartner(Hundepension.this); //öffnen des Zimmerpartner fensters und Übergabe des Objektes "Hundepension"
                     hundregistrierpanel.setVisible(false);
                 }
         });
+        // </editor-fold desc>
     }
+    // </editor-fold desc>
+    // <editor-fold desc="Methode zum Erzeugen mehrer Objekte und Speichern in der Liste">
     public void initObjekte(){ //Erschaffen von Objekten der Klasse Hunde
         Hunde h1 = new Hunde("Violet", "Yorkshire Terrier", "Kleiner Hund", 3, "Hündin", true,"nichts/niemanden", "Verträgt keine Eier. ",false, "");
         hundeimhotel.add(h1);
@@ -220,8 +228,10 @@ public class Hundepension extends JFrame{
         hundeimhotel.add(h7);
         Hunde h8 = new Hunde("Jabba", "Mops", "Kleiner Hund", 2, "Rüde", true, "Nichts", "", false, "");
         hundeimhotel.add(h8);}
-
+    // </editor-fold desc>
+    // <editor-fold desc="public static void Methode zum Aufrufen der Klasse">
         public static void main(String[] args) {
         new Hundepension();
     }
+    // </editor-fold desc>
 }

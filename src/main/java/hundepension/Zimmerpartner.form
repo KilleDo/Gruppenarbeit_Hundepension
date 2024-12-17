@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="hundepension.Zimmerpartner">
-  <grid id="27dc6" binding="zimmmerpartnerpanel" layout-manager="GridLayoutManager" row-count="9" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="zimmmerpartnerpanel" layout-manager="GridLayoutManager" row-count="11" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="30" left="30" bottom="30" right="30"/>
     <constraints>
-      <xy x="20" y="20" width="1299" height="1963"/>
+      <xy x="20" y="20" width="1299" height="627"/>
     </constraints>
-    <properties/>
+    <properties>
+      <background color="-3481089"/>
+    </properties>
     <border type="none"/>
     <children>
       <component id="8f9cf" class="javax.swing.JLabel" binding="headline">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Idealer Zimmerpartner eigenschaften:"/>
+          <text value="Hier können Sie nach einem Zimmerpartner filtern:"/>
         </properties>
       </component>
       <component id="f65bd" class="javax.swing.JLabel">
@@ -111,34 +113,6 @@
         </constraints>
         <properties/>
       </component>
-      <component id="c4eac" class="javax.swing.JComboBox" binding="eingabeHundeauswaehlen">
-        <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties/>
-      </component>
-      <component id="17694" class="javax.swing.JRadioButton" binding="genauesFilternradiobutton">
-        <constraints>
-          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Nur Hunde, die einen Zimmerpartner suchen anzeigen"/>
-        </properties>
-      </component>
-      <component id="9eb47" class="javax.swing.JComboBox" binding="zimmerpartnerwaehlencombobox">
-        <constraints>
-          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties/>
-      </component>
-      <component id="4c7d3" class="javax.swing.JButton" binding="zuweisenbutton">
-        <constraints>
-          <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="zuweisen"/>
-        </properties>
-      </component>
       <component id="d347e" class="javax.swing.JComboBox" binding="groessefiltercombobox">
         <constraints>
           <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
@@ -202,6 +176,58 @@
         </constraints>
         <properties>
           <text value="zwischen Hunderassen bitte immer ein Komma und Leerzeichen setzen"/>
+        </properties>
+      </component>
+      <component id="17694" class="javax.swing.JRadioButton" binding="genauesFilternradiobutton">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Nur Hunde, die einen Zimmerpartner suchen anzeigen"/>
+        </properties>
+      </component>
+      <component id="4c7d3" class="javax.swing.JButton" binding="zuweisenbutton">
+        <constraints>
+          <grid row="10" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="zuweisen"/>
+        </properties>
+      </component>
+      <component id="9eb47" class="javax.swing.JComboBox" binding="zimmerpartnerwaehlencombobox">
+        <constraints>
+          <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="c4eac" class="javax.swing.JComboBox" binding="eingabeHundeauswaehlen">
+        <constraints>
+          <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="3ac5e" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Zimmerpartner zuweisen:"/>
+        </properties>
+      </component>
+      <component id="d50ba" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Ihr Hund:"/>
+        </properties>
+      </component>
+      <component id="d5158" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Zimmerpartner:"/>
         </properties>
       </component>
     </children>
