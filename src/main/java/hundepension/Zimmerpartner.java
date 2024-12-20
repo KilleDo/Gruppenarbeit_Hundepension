@@ -216,6 +216,14 @@ public class Zimmerpartner extends JFrame{
                 alterfilter_textfield.setText("");
                 geschlechtfilter_combobox.setSelectedIndex(0);
                 kastriertfilter_combobox.setSelectedIndex(0);
+                egalrasse_RadioButton.setSelected(true);
+                sichtbarrasse = false;
+                rassefilter_textfield.setVisible(sichtbarrasse);
+                rassefilterinfo_label.setVisible(sichtbarrasse);
+                alteregal_RadioButton.setSelected(true);
+                sichtbaralter = false;
+                alterfilter_textfield.setVisible(sichtbaralter);
+                alterfilter_combobox.setVisible(sichtbaralter);
             }
 
         });

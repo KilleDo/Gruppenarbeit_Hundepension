@@ -14,6 +14,7 @@ public class Hund {
     private boolean einzelzimmer;
     private String zimmerpartner;
     // </editor-fold>
+
     // <editor-fold desc="Konstruktor">
     //Konstruktor (Dieser wird verwendet um Objekte der Klasse Hunde zu erstellen und deren Atrribute zu initialisieren)
     public Hund(String hundename, String rasse, String groesse, double alter, String geschlecht, boolean kastriert, String probleme, String weitereInfos, boolean einzelzimmer, String zimmerpartner) {
@@ -29,6 +30,7 @@ public class Hund {
         this.zimmerpartner = zimmerpartner;
     }
     // </editor-fold desc>
+
     // <editor-fold desc="Gettermethoden">
     public String getHundename() {
         return hundename;
@@ -55,11 +57,13 @@ public class Hund {
         return zimmerpartner;
     }
     // </editor-fold>
+
     // <editor-fold desc="Methode zum hinzufügen des Zimmerpartners">
     public void setZimmerpartner(String zimmerpartner) { //überschreibt den zimmerpartner String
         this.zimmerpartner = "Zimmerpartner: " + zimmerpartner;
     }
     // </editor-fold desc">
+
     // <editor-fold desc="Methode zur übersichtlichen Ausgabe eines Objektes">
     // erzeugt eine andere Textdarstellung des Objektes (\n = Zeilenumbruch)
     public String ausgeben(){

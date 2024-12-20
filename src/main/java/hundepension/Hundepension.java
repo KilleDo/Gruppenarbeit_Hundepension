@@ -1,8 +1,10 @@
 package hundepension;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+
 public class Hundepension extends JFrame{
     // <editor-fold desc="Definieren der GUI-Komponenten und Listen ">
     private JPanel hundregistrier_panel;
@@ -137,11 +139,10 @@ public class Hundepension extends JFrame{
                     return;} //unterbrechen des Vorgangs
                 if (alter<1){ //falls der Hund unter einem Jahr alt ist: Fehlermeldung und unterbrechen des Speichervorgangs
                     JOptionPane.showMessageDialog(null,"Wir nehmen keine Hunde unter 1 Jahr.\nEntschuldigen Sie die Unannehmlichkeiten.");
-                    return;
-                }else if(alter>20){ //falls der Hund über zwanzig Jahre alt ist: Fehlermeldung und unterbrechen des Speichervorgangs
+                    return;}
+                if(alter>20){ //falls der Hund über zwanzig Jahre alt ist: Fehlermeldung und unterbrechen des Speichervorgangs
                     JOptionPane.showMessageDialog(null,"Wir nehmen nur Hunde bis 20.\nEntschuldigen Sie die Unannehmlichkeiten");
-                    return;
-                }
+                    return;}
                 String geschlecht = geschlecht_combobox.getSelectedItem().toString();
                 boolean kastriert; // initalisieren des boolean kastriert
                 String ausgewaehlt = kastriert_combobox.getSelectedItem().toString();
