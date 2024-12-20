@@ -10,7 +10,7 @@
     </properties>
     <border type="none"/>
     <children>
-      <component id="8f9cf" class="javax.swing.JLabel" binding="headline">
+      <component id="8f9cf" class="javax.swing.JLabel" binding="informations_label">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -18,7 +18,7 @@
           <text value="Hier können Sie nach einem Zimmerpartner filtern:"/>
         </properties>
       </component>
-      <component id="f65bd" class="javax.swing.JLabel">
+      <component id="f65bd" class="javax.swing.JLabel" binding="rassefilter_label">
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -26,7 +26,7 @@
           <text value="Rasse:"/>
         </properties>
       </component>
-      <component id="77a77" class="javax.swing.JLabel">
+      <component id="77a77" class="javax.swing.JLabel" binding="groessefilter_label">
         <constraints>
           <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -34,7 +34,7 @@
           <text value="Größe:"/>
         </properties>
       </component>
-      <component id="86b13" class="javax.swing.JLabel">
+      <component id="86b13" class="javax.swing.JLabel" binding="alterfilter_label">
         <constraints>
           <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -42,7 +42,7 @@
           <text value="Alter:"/>
         </properties>
       </component>
-      <component id="d24f5" class="javax.swing.JLabel">
+      <component id="d24f5" class="javax.swing.JLabel" binding="geschlechtfilter_label">
         <constraints>
           <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -50,7 +50,7 @@
           <text value="Geschlecht"/>
         </properties>
       </component>
-      <component id="bff94" class="javax.swing.JRadioButton" binding="alteregalRadioButton">
+      <component id="bff94" class="javax.swing.JRadioButton" binding="alteregal_RadioButton">
         <constraints>
           <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -60,7 +60,7 @@
           <text value="Egal"/>
         </properties>
       </component>
-      <component id="594db" class="javax.swing.JLabel">
+      <component id="594db" class="javax.swing.JLabel" binding="kastriertfilter_label">
         <constraints>
           <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -68,14 +68,16 @@
           <text value="kastriert:"/>
         </properties>
       </component>
-      <scrollpane id="e80f2" binding="filterausgabescrollbar">
+      <scrollpane id="e80f2" binding="filterausgabe_ScrollPane">
         <constraints>
-          <grid row="7" column="0" row-span="1" col-span="5" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="7" column="0" row-span="1" col-span="5" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="1" height="242"/>
+          </grid>
         </constraints>
         <properties/>
         <border type="none"/>
         <children>
-          <component id="156a1" class="javax.swing.JTextArea" binding="filterausgabe">
+          <component id="156a1" class="javax.swing.JTextArea" binding="filterausgabe_textarea">
             <constraints/>
             <properties>
               <editable value="false"/>
@@ -83,7 +85,7 @@
           </component>
         </children>
       </scrollpane>
-      <component id="51e70" class="javax.swing.JButton" binding="filternButton" default-binding="true">
+      <component id="51e70" class="javax.swing.JButton" binding="filtern_button">
         <constraints>
           <grid row="6" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -91,7 +93,7 @@
           <text value="Filtern"/>
         </properties>
       </component>
-      <component id="8d497" class="javax.swing.JComboBox" binding="alterfiltercombobox">
+      <component id="8d497" class="javax.swing.JComboBox" binding="alterfilter_combobox">
         <constraints>
           <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -105,7 +107,7 @@
           </model>
         </properties>
       </component>
-      <component id="1a82d" class="javax.swing.JTextField" binding="alterfiltertextfield">
+      <component id="1a82d" class="javax.swing.JTextField" binding="alterfilter_textfield">
         <constraints>
           <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -113,7 +115,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="d347e" class="javax.swing.JComboBox" binding="groessefiltercombobox">
+      <component id="d347e" class="javax.swing.JComboBox" binding="groessefilter_combobox">
         <constraints>
           <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -128,7 +130,7 @@
           </model>
         </properties>
       </component>
-      <component id="7e6c9" class="javax.swing.JComboBox" binding="geschlechtfiltercombobox">
+      <component id="7e6c9" class="javax.swing.JComboBox" binding="geschlechtfilter_combobox">
         <constraints>
           <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -140,7 +142,7 @@
           </model>
         </properties>
       </component>
-      <component id="41749" class="javax.swing.JComboBox" binding="kastriertfiltercombobox">
+      <component id="41749" class="javax.swing.JComboBox" binding="kastriertfilter_combobox">
         <constraints>
           <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -152,7 +154,7 @@
           </model>
         </properties>
       </component>
-      <component id="89d36" class="javax.swing.JRadioButton" binding="egalrasseRadioButton">
+      <component id="89d36" class="javax.swing.JRadioButton" binding="egalrasse_RadioButton">
         <constraints>
           <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -162,7 +164,7 @@
           <text value="Egal"/>
         </properties>
       </component>
-      <component id="43044" class="javax.swing.JTextField" binding="rassefiltertextfield">
+      <component id="43044" class="javax.swing.JTextField" binding="rassefilter_textfield">
         <constraints>
           <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -170,7 +172,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="afd2a" class="javax.swing.JLabel" binding="rassefilterinfolabel">
+      <component id="afd2a" class="javax.swing.JLabel" binding="rassefilterinfo_label">
         <constraints>
           <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -178,7 +180,7 @@
           <text value="zwischen Hunderassen bitte immer ein Komma und Leerzeichen setzen"/>
         </properties>
       </component>
-      <component id="17694" class="javax.swing.JRadioButton" binding="genauesFilternradiobutton">
+      <component id="17694" class="javax.swing.JRadioButton" binding="genauesFiltern_RadioButton">
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -186,7 +188,7 @@
           <text value="Nur Hunde, die einen Zimmerpartner suchen anzeigen"/>
         </properties>
       </component>
-      <component id="4c7d3" class="javax.swing.JButton" binding="zuweisenbutton">
+      <component id="4c7d3" class="javax.swing.JButton" binding="zuweisen_button">
         <constraints>
           <grid row="10" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -194,19 +196,19 @@
           <text value="zuweisen"/>
         </properties>
       </component>
-      <component id="9eb47" class="javax.swing.JComboBox" binding="zimmerpartnerwaehlencombobox">
+      <component id="9eb47" class="javax.swing.JComboBox" binding="zimmerpartnerwaehlen_combobox">
         <constraints>
           <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
       </component>
-      <component id="c4eac" class="javax.swing.JComboBox" binding="eingabeHundeauswaehlen">
+      <component id="c4eac" class="javax.swing.JComboBox" binding="eingabeHundeauswaehlen_combobox">
         <constraints>
           <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
       </component>
-      <component id="3ac5e" class="javax.swing.JLabel">
+      <component id="3ac5e" class="javax.swing.JLabel" binding="zimmerpartnerzuweis_label">
         <constraints>
           <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -214,7 +216,7 @@
           <text value="Zimmerpartner zuweisen:"/>
         </properties>
       </component>
-      <component id="d50ba" class="javax.swing.JLabel">
+      <component id="d50ba" class="javax.swing.JLabel" binding="ihrHund_label">
         <constraints>
           <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -222,7 +224,7 @@
           <text value="Ihr Hund:"/>
         </properties>
       </component>
-      <component id="d5158" class="javax.swing.JLabel">
+      <component id="d5158" class="javax.swing.JLabel" binding="zimmerpartner_label">
         <constraints>
           <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>

@@ -48,12 +48,6 @@ public class Hunde {
     public boolean istKastriert() {
         return kastriert;
     }
-    public String getProbleme() {
-        return probleme;
-    }
-    public String getWeitereInfos() {
-        return weitereInfos;
-    }
     public boolean getEinzelzimmer(){
         return einzelzimmer;
     }
