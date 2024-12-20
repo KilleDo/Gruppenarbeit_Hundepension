@@ -57,7 +57,7 @@ public class Zimmerpartner extends JFrame{
 
         // <editor-fold desc="Anzeigen der Hunde in der Ausgabefläche">
         //Vom Beginn an alle Hunde in der Textarea anzeigen
-        for (Hunde hund: hundepension.getHundeimhotel()){ //geht alle Hunde der hundeimHotel-Liste durch
+        for (Hund hund: hundepension.getHundeimhotel()){ //geht alle Hunde der hundeimHotel-Liste durch
             String hundausgabe = hund.ausgeben(); //aufrufen der ausgeben Methode aus der Hunde Klasse am soeben erstellten Objekt und speichern in dem String "hundausgabe"
             filterausgabe_textarea.setText(filterausgabe_textarea.getText() + hundausgabe); // hinzufügen des Objektes zur textarea
         }
@@ -185,7 +185,7 @@ public class Zimmerpartner extends JFrame{
                     JOptionPane.showMessageDialog(null,"Sie können Ihren Hund nicht mit sich selbst in ein Zimmer stecken"); //Fehlermeldung
                     zimmerpartnerwaehlen_combobox.setSelectedIndex(0); // zimmerpartnercombobox wird zurück gesetzt
                     return;}
-                for (Hunde hund: hundepension.getHundeimhotel()) { //geht alle Hunde in der Pension durch
+                for (Hund hund: hundepension.getHundeimhotel()) { //geht alle Hunde in der Pension durch
                     if(hund.getHundename().equals(meinhund)){ //wenn der Hund dem Hund aus der Combobox "eingabeHundeauswaehlen"(also dem String "meinhund") entspricht
                         hund.setZimmerpartner(partnerhund); //wird dem Hund, der in der anderen Combobox ausgewaehlte Hund (partnerhund) zugeordnet (die Methode setZimmerpartner aus der "Hunde" Klasse wird aufgerufen)
                         eingabeHundeauswaehlen_combobox.removeItem(meinhund); //Der hund wird aus der "eingabeHundeauswaehlen" combobox entfernt
@@ -193,7 +193,7 @@ public class Zimmerpartner extends JFrame{
                         zimmerpartnerwaehlen_combobox.removeItem(meinhund); //der hund wird ebenso aus der zimmerpartnerwaehlencombobox entfernt, sodass es nicht dazu kommen kann, dass er doppelt zugewiesen wird
                         }
                 }
-                for (Hunde hund: hundepension.getHundeimhotel()) { //geht erneut alle Hunde in der Pension durch
+                for (Hund hund: hundepension.getHundeimhotel()) { //geht erneut alle Hunde in der Pension durch
                     if (hund.getHundename().equals(partnerhund)) { //wenn der Hund dem Hund aus der Combobox "zimmerpartnerwaehlencombobox"(also dem String partnerhund) entspricht
                         hund.setZimmerpartner(meinhund); //wird dem partnerhund ebenso unser Hund als Partner zugewiesen
                         zimmerpartnerwaehlen_combobox.removeItem(partnerhund); //Der partnerhund wird aus der combobox entfernt
@@ -204,12 +204,18 @@ public class Zimmerpartner extends JFrame{
                     }
                 }
                 filterausgabe_textarea.setText(""); //die ausgabe textArea wird zurückgesetzt
-                for (Hunde hund: hundepension.getHundeimhotel()){ //geht alle Hunde durch
+                for (Hund hund: hundepension.getHundeimhotel()){ //geht alle Hunde durch
                     if (!hund.getZimmerpartner().isEmpty()){ //falls zimmerpartner nicht leer ist (der Hund also einen Zimmerpartner hat)
                         String hundausgabe = hund.ausgeben(); // aufrufen der "ausgeben" Methode aus der Klasse "Hunde" an dem "hund" Objekt und in dem String "hundausgabe" speichern
                         filterausgabe_textarea.setText(filterausgabe_textarea.getText() + hundausgabe); //hundausgabe zur Textarea hinzufügen
                     }
                 }
+                rassefilter_textfield.setText("");
+                groessefilter_combobox.setSelectedIndex(0);
+                alterfilter_combobox.setSelectedIndex(0);
+                alterfilter_textfield.setText("");
+                geschlechtfilter_combobox.setSelectedIndex(0);
+                kastriertfilter_combobox.setSelectedIndex(0);
             }
 
         });
@@ -221,13 +227,13 @@ public class Zimmerpartner extends JFrame{
     //Hauptmethoden zum filtern oder speziellen Filtern
     public void filtern(){
         //Genreller Filter, filtert durch alle Hunde in der Pension
-        ArrayList<Hunde> gefilterteHunde = new ArrayList<>(); //gefilterte Liste die Schlussendlich in der textarea ausgegeben wird
+        ArrayList<Hund> gefilterteHunde = new ArrayList<>(); //gefilterte Liste die Schlussendlich in der textarea ausgegeben wird
         String groesse = groessefilter_combobox.getSelectedItem().toString();
         String geschlecht = geschlechtfilter_combobox.getSelectedItem().toString();
         String kastriertstring = kastriertfilter_combobox.getSelectedItem().toString();
 
         //geht alle Hunde in der Pension durch und immer wenn eine der filtermethoden nicht zutrifft wird das Filtern am nächsten Objekt(nächsten hund) fortgesetzt
-        for (Hunde hund: hundepension.getHundeimhotel()){
+        for (Hund hund: hundepension.getHundeimhotel()){
             if (rassefiltern(hund) == false){
                 continue;} //beendet den vorgang für das Objekt und springt zum nächsten in der Liste
             if (groessefiltern(hund, groesse) == false){
@@ -246,7 +252,7 @@ public class Zimmerpartner extends JFrame{
             filterausgabe_textarea.setText("Keine Hunde entsprechen den ausgewählten Kriterien."); //ausgabe
         } else{ // falls Liste nicht leer
             filterausgabe_textarea.setText(""); //zurücksetzen der Textarea
-            for (Hunde hund: gefilterteHunde){ //geht alle Objekte "hund" die Liste durch
+            for (Hund hund: gefilterteHunde){ //geht alle Objekte "hund" die Liste durch
                 String hundausgabe = hund.ausgeben(); //ruft die aufgeben Methode am objekt hund auf
                 filterausgabe_textarea.setText(filterausgabe_textarea.getText() + hundausgabe); //fügt den Hund zur textarea hinzu
             }
@@ -254,13 +260,13 @@ public class Zimmerpartner extends JFrame{
     }
     public void partnerfiltern(){
         //Quasi der gleiche ablauf wie bei der filtern Methode, nur mit dem Unterschied, dass noch danach gefiltert wird, dass der Hund in einem Doppelzimmer ist (Einzelzimmer = false) und er noch keinen Zimmerpartner hat.
-        ArrayList<Hunde> gefilterteHunde = new ArrayList<>(); //Die gefilterte Liste die am Ende in der textarea ausgegeben wird
+        ArrayList<Hund> gefilterteHunde = new ArrayList<>(); //Die gefilterte Liste die am Ende in der textarea ausgegeben wird
         String groesse = groessefilter_combobox.getSelectedItem().toString();
         String geschlecht = geschlechtfilter_combobox.getSelectedItem().toString();
         String kastriertstring = kastriertfilter_combobox.getSelectedItem().toString();
 
         //geht alle Hunde in der Pension durch und immer wenn eine der filtermethoden nicht zutrifft wird das Filtern am nächsten Objekt(nächsten hund) fortgesetzt
-        for (Hunde hund: hundepension.getHundeimhotel()){
+        for (Hund hund: hundepension.getHundeimhotel()){
             if (hund.getEinzelzimmer()==true){
                 continue;}
             if (!hund.getZimmerpartner().isEmpty()){
@@ -283,7 +289,7 @@ public class Zimmerpartner extends JFrame{
             filterausgabe_textarea.setText("Keine Hunde entsprechen den ausgewählten Kriterien.");
         } else{
             filterausgabe_textarea.setText("");
-            for (Hunde hund: gefilterteHunde){
+            for (Hund hund: gefilterteHunde){
                 String hundausgabe = hund.ausgeben();
                 filterausgabe_textarea.setText(filterausgabe_textarea.getText() + hundausgabe);
             }
@@ -294,7 +300,7 @@ public class Zimmerpartner extends JFrame{
         return rassefilter_textfield.getText().split(", "); //teilt den String auf immer wenn ein Komma und ein Leerzeichen eingetippt werden.
     }
     //Filtermthoden welche in den Hauptfiltermethoden aufgerufen werden
-    private boolean rassefiltern(Hunde hund){
+    private boolean rassefiltern(Hund hund){
         String[] rassefilterliste = splitrasseeingabe(); //erstellen eines Array, in welchem die einzelnen Bruchstücke/Rassen gespeihert werden
         if (sichtbarrasse == false) {
             return true;} //falls sichtbarrasse falsch ist, ist der egalrasseradiobutton aktiviert und somit ist jeder Hund "richtig"
@@ -306,17 +312,17 @@ public class Zimmerpartner extends JFrame{
         }
         return rassepasst; // rassepasst wird ausgegeben, falls filterkriterien zugetroffen haben: rassepasst == true sonst bleibt rassepasst false
     }
-    private boolean groessefiltern(Hunde hund, String groesse){
+    private boolean groessefiltern(Hund hund, String groesse){
         return groesse.equals("Egal") || hund.getGroesse().equals(groesse); //Die Methode gibt den wert true aus, falls das gefilterte zum hund passt
         }
-    private boolean geschlechtfiltern(Hunde hund, String geschlecht){
+    private boolean geschlechtfiltern(Hund hund, String geschlecht){
         return geschlecht.equals("Egal") || hund.getGeschlecht().equals(geschlecht);//Die Methode gibt true aus, falls das gefilterte zum hund passt
     }
-    private boolean kastriertfiltern(Hunde hund, String kastriertstring) {
+    private boolean kastriertfiltern(Hund hund, String kastriertstring) {
         boolean kastriert = !kastriertstring.equals("Nein"); //kastriert ist true, wenn nicht-nein (also ja oder egal) ausgewählt wird, sonst false
         return kastriertstring.equals("Egal") || hund.istKastriert() == kastriert; //Die Methode gibt true aus, falls das gefilterte zum hund passt
     }
-    private boolean alterfiltern(Hunde hund) {
+    private boolean alterfiltern(Hund hund) {
         if (sichtbaralter == false) {
             return true;} //Wenn der radio button "Egal" aktiviert ist, gibt die methode direkt true aus
         boolean alterpasst = false;
@@ -328,7 +334,7 @@ public class Zimmerpartner extends JFrame{
                     alterpasst = true; //Methode gibt true aus
                 }
             } catch (NumberFormatException e) {
-                //Fehleingaben werden ignoriert
+                //Fehleingaben werden einfach ignoriert
             }}
         String altersbereich = alterfilter_combobox.getSelectedItem().toString();
         if (!altersbereich.isEmpty()) { // alters combobox nicht leer, also ein wert "altersbereich" ausgewählt
@@ -338,10 +344,10 @@ public class Zimmerpartner extends JFrame{
             } else if (altersbereich.equals("6-10") && (hund.getAlter() >= 6 && hund.getAlter() <= 10)) {
                 //falls in der combobox 6-10 ausgewählt wurde und das alter hundes nicht 6, 7, 8, 9 oder 10 ist
                 alterpasst = true;
-            } else if (altersbereich.equals("11-15") && !(hund.getAlter() >= 11 && hund.getAlter() <= 15)) {
+            } else if (altersbereich.equals("11-15") && (hund.getAlter() >= 11 && hund.getAlter() <= 15)) {
                 //falls in der combobox 11-15 ausgewählt wurde und das alter hundes nicht 11, 12, 13, 14 oder 15 ist
                 alterpasst = true;
-            } else if (alterfilter_combobox.getSelectedItem().toString().equals("16-20") && !(hund.getAlter() >= 16 && hund.getAlter() <= 20)) {
+            } else if (alterfilter_combobox.getSelectedItem().toString().equals("16-20") && (hund.getAlter() >= 16 && hund.getAlter() <= 20)) {
                 //falls in der combobox 6-10 ausgewählt wurde und das alter hundes nicht 16, 17, 18, 19 oder 20 ist
                 alterpasst = true;
             }
@@ -353,14 +359,14 @@ public class Zimmerpartner extends JFrame{
     private void setEingabeHundeauswaehlen(){
         eingabeHundeauswaehlen_combobox.addItem("");
         eingabeHundeauswaehlen_combobox.setSelectedIndex(0);
-        for (Hunde hund: hundepension.getSuchtpartnerListe()){
+        for (Hund hund: hundepension.getSuchtpartnerListe()){
             eingabeHundeauswaehlen_combobox.addItem(hund.getHundename());
         }
     }
     private void setZimmerpartnerwaehlencombobox(){
         zimmerpartnerwaehlen_combobox.addItem("");
         zimmerpartnerwaehlen_combobox.setSelectedIndex(0);
-        for (Hunde hund: hundepension.getHundeimhotel()){
+        for (Hund hund: hundepension.getHundeimhotel()){
             if (hund.getZimmerpartner().isEmpty() && hund.getEinzelzimmer() == false){
                 zimmerpartnerwaehlen_combobox.addItem(hund.getHundename());}
         }

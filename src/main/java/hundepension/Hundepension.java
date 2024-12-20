@@ -34,16 +34,16 @@ public class Hundepension extends JFrame{
     private JButton speichern_button;
     private JButton reset_button;
     private JButton partnerZuweisen_button;
-    protected ArrayList<Hunde> suchtpartnerListe; //Erstellen der Liste zur Klasse Hunde, in welcher die Objekte gespeichert werden
-    protected ArrayList<Hunde> hundeimhotel; //Erstellen der Liste für alle Honde in der Hundepension
+    protected ArrayList<Hund> suchtpartnerListe; //Erstellen der Liste zur Klasse Hunde, in welcher die Objekte gespeichert werden
+    protected ArrayList<Hund> hundeimhotel; //Erstellen der Liste für alle Honde in der Hundepension
     // </editor-fold>
 
     // <editor-fold desc="GetterMethoden für die Listen">
     //Erstellen von gettermethoden um die Listen später in der anderen Klasse aufrufen zu können
-    public ArrayList<Hunde> getSuchtpartnerListe() {
+    public ArrayList<Hund> getSuchtpartnerListe() {
         return suchtpartnerListe;
     }
-    public ArrayList<Hunde> getHundeimhotel() {
+    public ArrayList<Hund> getHundeimhotel() {
         return hundeimhotel;
     }
     // </editor-fold>
@@ -168,7 +168,7 @@ public class Hundepension extends JFrame{
                     JOptionPane.showMessageDialog(null, "Bitte alles ausfüllen.");
                     return;
                 }
-                for (Hunde hund: hundeimhotel){ //geht alle Objekte(hund) der Klasse Hunde, in der "hundeimhotel"-Liste durch
+                for (Hund hund: hundeimhotel){ //geht alle Objekte(hund) der Klasse Hunde, in der "hundeimhotel"-Liste durch
                     if (hund.getHundename().equals(hundename)){ // wenn der Hundename eines Objektes dem eingegebenen Namen entspricht:
                         JOptionPane.showMessageDialog(null, "Da es bereits einen " + hundename +" in der Pension gibt, " +
                                 "\nbitten wir Sie, eine Namensergänzung hinzuzufügen " +
@@ -176,7 +176,7 @@ public class Hundepension extends JFrame{
                         return; //unterbrechen des Vorgangs
                     }
                 }
-                Hunde hund = new Hunde(hundename, rasse, groesse, alter, geschlecht, kastriert, probleme, weitereInfos, einzelzimmer, zimmerpartner);
+                Hund hund = new Hund(hundename, rasse, groesse, alter, geschlecht, kastriert, probleme, weitereInfos, einzelzimmer, zimmerpartner);
                 //Erstellen eines neuen Objekts der Klasse Hunde, mit den aus den textfield und Comboboxen entnommenen Eingaben
                 String hundausgabe = hund.ausgeben(); //aufrufen der ausgeben Methode aus der Hunde Klasse am soeben erstellten Objekt und speichern in dem String "hundausgabe"
                 hundeimhotel.add(hund); //hinzufügen des soeben erstelleten Hundes zur Liste "hundeimhotel"
@@ -222,21 +222,21 @@ public class Hundepension extends JFrame{
 
     // <editor-fold desc="Methode zum Erzeugen mehrer Objekte und Speichern in der Liste">
     public void initObjekte(){ //Erschaffen von Objekten der Klasse Hunde
-        Hunde h1 = new Hunde("Violet", "Yorkshire Terrier", "Kleiner Hund", 3, "Hündin", true,"nichts/niemanden", "Verträgt keine Eier. ",false, "");
+        Hund h1 = new Hund("Violet", "Yorkshire Terrier", "Kleiner Hund", 3, "Hündin", true,"nichts/niemanden", "Verträgt keine Eier. ",false, "");
         hundeimhotel.add(h1);
-        Hunde h2 = new Hunde("Milo", "Labradoodle", "Mittlerer Hund", 4, "Rüde", true, "Hunden/Rüden", "Frisst gerne alles mögliche.",false, "");
+        Hund h2 = new Hund("Milo", "Labradoodle", "Mittlerer Hund", 4, "Rüde", true, "Hunden/Rüden", "Frisst gerne alles mögliche.",false, "");
         hundeimhotel.add(h2);
-        Hunde h3 = new Hunde("Miko", "Beagle", "Kleiner Hund", 6, "Hündin", true, "Nichts", "", false, "");
+        Hund h3 = new Hund("Miko", "Beagle", "Kleiner Hund", 16, "Hündin", true, "Nichts", "", false, "");
         hundeimhotel.add(h3);
-        Hunde h4 = new Hunde("Chewbacca", "Neufundländer", "Riesiger Hund", 4, "Rüde", true, "Eimerköpfen", "Guter Gefährte", false, "");
+        Hund h4 = new Hund("Chewbacca", "Neufundländer", "Riesiger Hund", 4, "Rüde", true, "Eimerköpfen", "Guter Gefährte", false, "");
         hundeimhotel.add(h4);
-        Hunde h5 = new Hunde("Hulk", "American Pit Bull Terrier", "Großer Hund", 8, "Rüde", false, "lauten Geräuschen", "Nicht erschrecken, sein Fell ist grün gefärbt.", false,"" );
+        Hund h5 = new Hund("Hulk", "American Pit Bull Terrier", "Großer Hund", 8, "Rüde", false, "lauten Geräuschen", "Nicht erschrecken, sein Fell ist grün gefärbt.", false,"" );
         hundeimhotel.add(h5);
-        Hunde h6 = new Hunde("Blacky", "Dalmatiner", "Großer Hund", 6, "Hündin", true,"Nichts", "", false, "");
+        Hund h6 = new Hund("Blacky", "Dalmatiner", "Großer Hund", 6, "Hündin", true,"Nichts", "", false, "");
         hundeimhotel.add(h6);
-        Hunde h7 = new Hunde("Loki", "Zwergspitz", "Kleinhund", 5, "Rüde", true, "Nichts", "Ist ein bisschen Hinterlistig.", false, "");
+        Hund h7 = new Hund("Loki", "Zwergspitz", "Kleinhund", 11, "Rüde", true, "Nichts", "Ist ein bisschen Hinterlistig.", false, "");
         hundeimhotel.add(h7);
-        Hunde h8 = new Hunde("Jabba", "Mops", "Kleiner Hund", 2, "Rüde", true, "Nichts", "", false, "");
+        Hund h8 = new Hund("Jabba", "Mops", "Kleiner Hund", 2, "Rüde", true, "Nichts", "", false, "");
         hundeimhotel.add(h8);}
     // </editor-fold desc>
 
