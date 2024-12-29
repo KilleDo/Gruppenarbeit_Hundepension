@@ -1,8 +1,10 @@
 package hundepension;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+
 public class Zimmerpartner extends JFrame{
     // <editor-fold desc="Definieren der GUI-Komponenten, der Variablen und des Objektes hundepension">
     private JPanel zimmmerpartner_panel;
@@ -210,6 +212,7 @@ public class Zimmerpartner extends JFrame{
                         filterausgabe_textarea.setText(filterausgabe_textarea.getText() + hundausgabe); //hundausgabe zur Textarea hinzufügen
                     }
                 }
+                //Zurücksetzen der Filter
                 rassefilter_textfield.setText("");
                 groessefilter_combobox.setSelectedIndex(0);
                 alterfilter_combobox.setSelectedIndex(0);
@@ -264,7 +267,7 @@ public class Zimmerpartner extends JFrame{
                 String hundausgabe = hund.ausgeben(); //ruft die aufgeben Methode am objekt hund auf
                 filterausgabe_textarea.setText(filterausgabe_textarea.getText() + hundausgabe); //fügt den Hund zur textarea hinzu
             }
-        }gefilterteHunde.clear(); //die gefilterteHunde Liste wird zurükgesetzt
+        }gefilterteHunde.clear(); //die gefilterteHunde Liste wird zurückgesetzt
     }
     public void partnerfiltern(){
         //Quasi der gleiche ablauf wie bei der filtern Methode, nur mit dem Unterschied, dass noch danach gefiltert wird, dass der Hund in einem Doppelzimmer ist (Einzelzimmer = false) und er noch keinen Zimmerpartner hat.
@@ -277,7 +280,7 @@ public class Zimmerpartner extends JFrame{
         for (Hund hund: hundepension.getHundeimhotel()){
             if (hund.getEinzelzimmer()==true){
                 continue;}
-            if (!hund.getZimmerpartner().isEmpty()){
+            if (!hund.getZimmerpartner().isEmpty()){ //Falls zimmerpartner NICHT leer ist
                 continue;}
             if (rassefiltern(hund) == false){
                 continue;}
@@ -309,7 +312,7 @@ public class Zimmerpartner extends JFrame{
     }
     //Filtermthoden welche in den Hauptfiltermethoden aufgerufen werden
     private boolean rassefiltern(Hund hund){
-        String[] rassefilterliste = splitrasseeingabe(); //erstellen eines Array, in welchem die einzelnen Bruchstücke/Rassen gespeihert werden
+        String[] rassefilterliste = splitrasseeingabe(); //erstellen eines Array, in welchem die einzelnen Bruchstücke/Rassen gespeichert werden
         if (sichtbarrasse == false) {
             return true;} //falls sichtbarrasse falsch ist, ist der egalrasseradiobutton aktiviert und somit ist jeder Hund "richtig"
         boolean rassepasst = false; //initialisieren des rassepasst boolean als falsch
@@ -327,15 +330,15 @@ public class Zimmerpartner extends JFrame{
         return geschlecht.equals("Egal") || hund.getGeschlecht().equals(geschlecht);//Die Methode gibt true aus, falls das gefilterte zum hund passt
     }
     private boolean kastriertfiltern(Hund hund, String kastriertstring) {
-        boolean kastriert = !kastriertstring.equals("Nein"); //kastriert ist true, wenn nicht-nein (also ja oder egal) ausgewählt wird, sonst false
+        boolean kastriert = !kastriertstring.equals("Nein"); //kastriert ist true, wenn nicht "Nein" (also "Ja" oder "Egal") ausgewählt wird, sonst false
         return kastriertstring.equals("Egal") || hund.istKastriert() == kastriert; //Die Methode gibt true aus, falls das gefilterte zum hund passt
     }
     private boolean alterfiltern(Hund hund) {
         if (sichtbaralter == false) {
-            return true;} //Wenn der radio button "Egal" aktiviert ist, gibt die methode direkt true aus
+            return true;} //Wenn der radio button "Egal" aktiviert ist, gibt die Methode direkt true aus
         boolean alterpasst = false;
         double alter;
-        if (!alterfilter_textfield.getText().isEmpty()) { //falls das alter textfeld nicht leer ist
+        if (!alterfilter_textfield.getText().isEmpty()) { //falls das alter Textfeld nicht leer ist
             try {
                 alter = Double.parseDouble(alterfilter_textfield.getText()); //umwandlung in double Wert
                 if (hund.getAlter() == alter) { // Wenn das alter mit dem gefilterten Wert übereinstimmt

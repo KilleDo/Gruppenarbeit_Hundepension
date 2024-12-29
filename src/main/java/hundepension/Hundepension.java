@@ -37,7 +37,7 @@ public class Hundepension extends JFrame{
     private JButton reset_button;
     private JButton partnerZuweisen_button;
     protected ArrayList<Hund> suchtpartnerListe; //Erstellen der Liste zur Klasse Hunde, in welcher die Objekte gespeichert werden
-    protected ArrayList<Hund> hundeimhotel; //Erstellen der Liste für alle Honde in der Hundepension
+    protected ArrayList<Hund> hundeimhotel; //Erstellen der Liste für alle Hunde in der Hundepension
     // </editor-fold>
 
     // <editor-fold desc="GetterMethoden für die Listen">
@@ -54,7 +54,7 @@ public class Hundepension extends JFrame{
     public Hundepension(){
         // <editor-fold desc="Erstellen des Fensters">
         setTitle("Hundepension "); // Titel des Fensters
-        setDefaultCloseOperation(EXIT_ON_CLOSE); //Sorgt dafür, dass das Fenster geschlossen wird, sobald der "Close" Knopf gedrückt wird
+        setDefaultCloseOperation(EXIT_ON_CLOSE); //Sorgt dafür, dass das Fenster geschlossen wird, sobald der "Close" Knopf/Das rote X gedrückt wird
         setContentPane(hundregistrier_panel); //Platzieren des Panels, auf welchem alle GUI-Elemente platziert sind im Fenster
         setSize(1500,1500); //Größe des Fensters
         setVisible(true); //Sichtbarkeit des Fensters
@@ -135,7 +135,10 @@ public class Hundepension extends JFrame{
                 try{
                     alter = Double.parseDouble(alter_textfield.getText());
                 }catch (NumberFormatException ex) { //falls es sich nicht in einen Double umwandeln lässt, weil z.B. Buchstaben enthalten:
-                    JOptionPane.showMessageDialog(null, "Bitte als Altersangabe nur Zahlen eingeben."); // Fehlermeldung
+                    if(alter_textfield.getText().isEmpty()){
+                        JOptionPane.showMessageDialog(null, "Bitte alles ausfüllen"); //falls es leer ist, soll eine Fehlermeldung kommen, dass alles ausgefüllt werden muss
+                    }else{
+                    JOptionPane.showMessageDialog(null, "Bitte als Altersangabe nur Zahlen eingeben.");} // Fehlermeldung, da buchstaben oder andere Zeichen eingegeben wurden
                     return;} //unterbrechen des Vorgangs
                 if (alter<1){ //falls der Hund unter einem Jahr alt ist: Fehlermeldung und unterbrechen des Speichervorgangs
                     JOptionPane.showMessageDialog(null,"Wir nehmen keine Hunde unter 1 Jahr.\nEntschuldigen Sie die Unannehmlichkeiten.");
@@ -169,7 +172,8 @@ public class Hundepension extends JFrame{
                     JOptionPane.showMessageDialog(null, "Bitte alles ausfüllen.");
                     return;
                 }
-                for (Hund hund: hundeimhotel){ //geht alle Objekte(hund) der Klasse Hunde, in der "hundeimhotel"-Liste durch
+                //Hundenamen dürfen nicht doppelt im Hotel sein
+                for (Hund hund: hundeimhotel){ //geht alle Objekte(hund) der Klasse Hund, in der "hundeimhotel"-Liste durch
                     if (hund.getHundename().equals(hundename)){ // wenn der Hundename eines Objektes dem eingegebenen Namen entspricht:
                         JOptionPane.showMessageDialog(null, "Da es bereits einen " + hundename +" in der Pension gibt, " +
                                 "\nbitten wir Sie, eine Namensergänzung hinzuzufügen " +
@@ -201,6 +205,7 @@ public class Hundepension extends JFrame{
             geschlecht_combobox.setSelectedIndex(0);
             kastriert_combobox.setSelectedIndex(0);
             probleme_combobox.setSelectedIndex(0);
+            zimmerauswahl_combobox.setSelectedIndex(0);
             }
         });
         // </editor-fold desc>
@@ -213,8 +218,8 @@ public class Hundepension extends JFrame{
                     JOptionPane.showMessageDialog(null, "Bitte einen Hund, welcher in ein Doppelzimmer soll eingeben."); //Fehlermeldung
                     return;
                     }
-                    new Zimmerpartner(Hundepension.this); //öffnen des Zimmerpartner fensters und Übergabe des Objektes "Hundepension"
-                    hundregistrier_panel.setVisible(false);
+                    new Zimmerpartner(Hundepension.this); //öffnen des Zimmerpartner-Fensters und Übergabe des Objektes "Hundepension"
+                    setVisible(false); // Hundepension-Fenster wird unsichtbar gestellt
                 }
         });
         // </editor-fold desc>
@@ -227,9 +232,9 @@ public class Hundepension extends JFrame{
         hundeimhotel.add(h1);
         Hund h2 = new Hund("Milo", "Labradoodle", "Mittlerer Hund", 4, "Rüde", true, "Hunden/Rüden", "Frisst gerne alles mögliche.",false, "");
         hundeimhotel.add(h2);
-        Hund h3 = new Hund("Miko", "Beagle", "Kleiner Hund", 16, "Hündin", true, "Nichts", "", false, "");
+        Hund h3 = new Hund("Miko", "Beagle", "Kleiner Hund", 19, "Hündin", true, "Nichts", "", false, "");
         hundeimhotel.add(h3);
-        Hund h4 = new Hund("Chewbacca", "Neufundländer", "Riesiger Hund", 4, "Rüde", true, "Eimerköpfen", "Guter Gefährte", false, "");
+        Hund h4 = new Hund("Chewbacca", "Neufundländer", "Riesiger Hund", 14, "Rüde", true, "Eimerköpfen", "Guter Gefährte", false, "");
         hundeimhotel.add(h4);
         Hund h5 = new Hund("Hulk", "American Pit Bull Terrier", "Großer Hund", 8, "Rüde", false, "lauten Geräuschen", "Nicht erschrecken, sein Fell ist grün gefärbt.", false,"" );
         hundeimhotel.add(h5);
@@ -238,11 +243,14 @@ public class Hundepension extends JFrame{
         Hund h7 = new Hund("Loki", "Zwergspitz", "Kleinhund", 11, "Rüde", true, "Nichts", "Ist ein bisschen Hinterlistig.", false, "");
         hundeimhotel.add(h7);
         Hund h8 = new Hund("Jabba", "Mops", "Kleiner Hund", 2, "Rüde", true, "Nichts", "", false, "");
-        hundeimhotel.add(h8);}
+        hundeimhotel.add(h8);
+        Hund h9 = new Hund("Sky", "Kuvasz", "Großer Hund", 4, "Hündin", true, "Fremden Menschen", "Muss oft gebürstet werden.",false,"");
+        hundeimhotel.add(h9);
+    }
     // </editor-fold desc>
 
     // <editor-fold desc="public static void Methode zum Aufrufen der Klasse">
-        public static void main(String[] args) {
+    public static void main(String[] args) {
         new Hundepension();
     }
     // </editor-fold desc>
