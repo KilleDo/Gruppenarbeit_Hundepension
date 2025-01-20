@@ -12,3 +12,10 @@ Kommt, probiert es aus!
 
 ## Unser Video:
 
+
+
+## Unser UML-Diagramm:
+
+![IMG_0267](https://github.com/user-attachments/assets/48cb6d07-e878-4044-b816-daf2ea2ce0aa)
+
+
