@@ -1,3 +1,5 @@
+## Gruppe 55 
+
 ## Vorstellung des Teams: 
 
 Wir, Sina Uebelhör, Kilian Domhöver, Jannik Rehm und Maren Zanner, IMUK-Studierende des 1. Semesters, erarbeiteten im Rahmen unser Projektarbeit des Faches „Programmiertechnik“ unser Projekt „Hundepension“. Die Bearbeitung des Projektes verlief zwischen dem 04.12.2024 und dem 19.01.2025. Gemeinsam erarbeiteten wir eine Methode, Hunde in einer Hundepension zu registrieren und ihnen einen Zimmerpartner zuzuweisen.
@@ -12,8 +14,7 @@ Kommt, probiert es aus!
 
 ## Unser Video:
 
-
-
+Link zum [Video](https://www.dropbox.com/scl/fo/xigs8o946k8sgtms9iccc/AOTKeLqvnhPrXzKzWKaHEYI?rlkey=ftkwu8er7n1usofqcdxj6vkck&st=vdkfzonm&dl=0)
 ## Unser UML-Diagramm:
 
 ![IMG_0267](https://github.com/user-attachments/assets/48cb6d07-e878-4044-b816-daf2ea2ce0aa)
